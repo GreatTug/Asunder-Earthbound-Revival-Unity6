@@ -104,6 +104,19 @@ All 13 original scenes have been verified with **0 missing scripts**, **0 broken
 
 ---
 
+---
+
+## 📥 Ready-to-Play Standalone Downloads (Release v1.0.0)
+
+If you just want to experience the game without opening Unity, download the pre-compiled, verified standalone packages directly from [GitHub Releases](https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6/releases/tag/v1.0.0):
+
+| Edition | Package | Recommended For | Direct Download |
+|:---|:---|:---|:---:|
+| 🖥️ **PC Standalone** | `Asunder_Earthbound_PC_Standalone_v1.0.0.zip` | Flat-screen desktop/laptop, 75° widescreen FOV, mouse look | [**Download PC (.zip)**](https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6/releases/download/v1.0.0/Asunder_Earthbound_PC_Standalone_v1.0.0.zip) |
+| 🥽 **VR OpenXR Standalone** | `Asunder_Earthbound_VR_OpenXR_v1.0.0.zip` | Meta Quest 2/3/Pro, Valve Index, HTC Vive, Reverb G2 | [**Download VR (.zip)**](https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6/releases/download/v1.0.0/Asunder_Earthbound_VR_OpenXR_v1.0.0.zip) |
+
+*Instructions: Extract the `.zip` to any folder on your computer and run `Asunder_Earthbound_PC.exe` or `Asunder_Earthbound_VR.exe`.*
+
 ## 🛠️ Building From Source
 
 ### Prerequisites
@@ -113,7 +126,7 @@ All 13 original scenes have been verified with **0 missing scripts**, **0 broken
 ### Steps
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/Asunder-Earthbound-Unity6.git
+   git clone https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6.git
    ```
 2. Open **Unity Hub** -> **Add project from disk** -> Select the project root folder.
 3. Once the project loads and imports, navigate to the top Unity Editor menu:
