@@ -1,5 +1,9 @@
 # Asunder: Earthbound — Unity 6 & OpenXR Revival
 
+<p align="center">
+  <img src="DOCS/images/asunder_main_screenshot.jpg" alt="Asunder: Earthbound — Unity 6 & OpenXR Revival" width="100%">
+</p>
+
 [![Unity Version](https://img.shields.io/badge/Unity-6000.6.6f1%20(Unity%206)-blue.svg?logo=unity)](https://unity.com/)
 [![Platforms](https://img.shields.io/badge/Platforms-PC%20%7C%20PCVR%20%7C%20Meta%20Quest%203%20%7C%20Google%20Cardboard-success.svg?logo=android)](https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6/releases/tag/v1.0.0)
 [![VR Runtime](https://img.shields.io/badge/VR%20Runtime-OpenXR%20%2B%20Cardboard%20Mobile-brightgreen.svg?logo=khronosgroup)](https://www.khronos.org/openxr/)
@@ -20,6 +24,18 @@
 ## ✈️ About Asunder: Earthbound
 
 Set aboard a 1930s luxury passenger airliner cruising through a turbulent, storm-swept night, *Asunder: Earthbound* places you in the passenger seat of an escalating airborne nightmare. Inspired by classic psychological horror and *The Twilight Zone*, the experience relies on tension, physical claustrophobia, and passenger interactions rather than jump scares.
+
+---
+
+## 📸 Visual Showcase & Reconstruction Gallery
+
+<p align="center">
+  <img src="DOCS/images/asunder_main_screenshot.jpg" width="49%" alt="PixelActive CityScape 1.8 Environment Model" />
+  <img src="DOCS/images/asunder_ingame_cabin.png" width="49%" alt="Unity 6 Reconstructed 1930s Cabin" />
+</p>
+<p align="center">
+  <em><b>Left:</b> Historic PixelActive CityScape 1.8 island and coastline model used for exterior world design. &nbsp;|&nbsp; <b>Right:</b> Reconstructed 1930s luxury passenger airliner cabin rendered live in Unity 6 with OpenXR.</em>
+</p>
 
 ---
 
