@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!30 &1
+GraphicsSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 16
+  m_Deferred:
+    m_Mode: 1
+    m_Shader: {fileID: 69, guid: 0000000000000000f000000000000000, type: 0}
+  m_DeferredReflections:
+    m_Mode: 1
+    m_Shader: {fileID: 74, guid: 0000000000000000f000000000000000, type: 0}
+  m_ScreenSpaceShadows:
+    m_Mode: 1
+    m_Shader: {fileID: 64, guid: 0000000000000000f000000000000000, type: 0}
+  m_DepthNormals:
+    m_Mode: 1
+    m_Shader: {fileID: 62, guid: 0000000000000000f000000000000000, type: 0}
+  m_MotionVectors:
+    m_Mode: 1
+    m_Shader: {fileID: 75, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightHalo:
+    m_Mode: 1
+    m_Shader: {fileID: 105, guid: 0000000000000000f000000000000000, type: 0}
+  m_LensFlare:
+    m_Mode: 1
+    m_Shader: {fileID: 102, guid: 0000000000000000f000000000000000, type: 0}
+  m_VideoShadersIncludeMode: 2
+  m_AlwaysIncludedShaders:
+  - {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 15104, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 15106, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10783, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 4800000, guid: df48264bd2e9c7649863f2d2fd06141c, type: 3}
+  - {fileID: 4800000, guid: 8132c6f58885f0b4a9bc8f1d957bd25a, type: 3}
+  - {fileID: 4800000, guid: d8d3430000254644daa73d7ba2a51757, type: 3}
+  - {fileID: 4800000, guid: 1e5e5a356668d8d47b6ad2cfad7cd30c, type: 3}
+  - {fileID: 4800000, guid: 2a72bcbf19827f84dba2b9d6c6e19119, type: 3}
+  - {fileID: 4800000, guid: 97e7f51c73c5e8c459726e74c8e99fb7, type: 3}
+  - {fileID: 4800000, guid: fbbb69f53927a434c8d5535f57015d6c, type: 3}
+  - {fileID: 4800000, guid: 4aafd9b3aa23f6a48977896b58de47aa, type: 3}
+  - {fileID: 4800000, guid: d2c1fadd2e62f234a96126fc17852fb6, type: 3}
+  - {fileID: 4800000, guid: 5c96b8eb077c5ec409bcdb7100f7599d, type: 3}
+  - {fileID: 4800000, guid: 47942a5da50189a45959fbe53ee1b1a9, type: 3}
+  - {fileID: 4800000, guid: d49eacd465b32fc49a644dc484d3e1e4, type: 3}
+  - {fileID: 4800000, guid: 0cb6ae79b81081047a3d4cad0db5e3cf, type: 3}
+  - {fileID: 4800000, guid: 25d11d29a48746b49998557aa48b199b, type: 3}
+  - {fileID: 4800000, guid: 287c95be5b56001449ab2a38dfb1928f, type: 3}
+  - {fileID: 4800000, guid: 3133879a6f746d54588838df36ff441c, type: 3}
+  - {fileID: 4800000, guid: f3c5afe39d48a2349be67a956f0ff2e1, type: 3}
+  - {fileID: 4800000, guid: ec3469cacb8a2dc488e874b22b4508d9, type: 3}
+  - {fileID: 4800000, guid: 68aa4103344e7c449859eb7b03096e86, type: 3}
+  - {fileID: 4800000, guid: acb22c53df0c9a142a11320ccd713b0d, type: 3}
+  - {fileID: 4800000, guid: c73da394146e23847801784f9f920dac, type: 3}
+  m_PreloadedShaders: []
+  m_PreloadShadersBatchTimeLimit: -1
+  m_GraphicsStateCollection: {fileID: 0}
+  m_CollectionStartupAction: 0
+  m_TraceSavePath: TracedCollection
+  m_TraceSendToEditor: 1
+  m_AdditionalWarmupCollections: []
+  m_WarmupAsync: 1
+  m_EnableCacheMissTracing: 0
+  m_WarmupProgressivelyLimit: -1
+  m_CacheMissCollectionPath: CacheMissCollection
+  m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_CustomRenderPipeline: {fileID: 0}
+  m_TransparencySortMode: 0
+  m_TransparencySortAxis: {x: 0, y: 0, z: 1}
+  m_DefaultRenderingPath: 1
+  m_DefaultMobileRenderingPath: 1
+  m_TierSettings: []
+  m_LightmapStripping: 0
+  m_FogStripping: 0
+  m_InstancingStripping: 0
+  m_BrgStripping: 0
+  m_DefaultLightBaker: 0
+  m_LightmapKeepPlain: 1
+  m_LightmapKeepDirCombined: 1
+  m_LightmapKeepDynamicPlain: 1
+  m_LightmapKeepDynamicDirCombined: 1
+  m_LightmapKeepShadowMask: 1
+  m_LightmapKeepSubtractive: 1
+  m_FogKeepLinear: 1
+  m_FogKeepExp: 1
+  m_FogKeepExp2: 1
+  m_AlbedoSwatchInfos: []
+  m_RenderPipelineGlobalSettingsMap: {}
+  m_ShaderBuildSettings:
+    keywordDeclarationOverrides: []
+    numInternalDefines: 0
+    defines: []
+    compilerSettings: []
+  m_LightsUseLinearIntensity: 0
+  m_LightsUseColorTemperature: 0
+  m_LogWhenShaderIsCompiled: 0
+  m_LightProbeOutsideHullStrategy: 0
+  m_CameraRelativeLightCulling: 0
+  m_CameraRelativeShadowCulling: 0

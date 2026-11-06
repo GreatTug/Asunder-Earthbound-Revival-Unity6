@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TestMat_Glass_BlueMetalic
+  m_Shader: {fileID: 4800000, guid: 198078d17ba56f94ab47e8b22da12bf2, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cube:
+        m_Texture: {fileID: 8900000, guid: 427f0118c974c534e9aedcd24ad8ff26, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bounds: 1
+    - _Density: 0.07410447
+    - _EdgeAlpha: 0
+    - _FrezFalloff: 1.0447761
+    - _FrezPow: 1
+    - _Gloss: 1
+    - _Metalics: 1
+    - _RefScale: 1
+    - _Reflection: 0.880597
+    - _Shininess: 0.09925377
+    m_Colors:
+    - _Color: {r: 0.72702205, g: 0.7586587, b: 0.875, a: 0.20784314}
+    - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _SpecColor: {r: 0.7490432, g: 0.7025844, b: 0.8308824, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: c566f22570e5cfb47a8fe3e4d9e8b3a0
+timeCreated: 1793487971
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 2
+  name:
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - Gill Sans MT
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  userData:

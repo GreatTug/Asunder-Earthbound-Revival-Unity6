@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SCENES/Main/Loading.unity
+    guid: c3aa29c1f8e380443b60f4fa7ad0bc13
+  - enabled: 1
+    path: Assets/SCENES/Main/IntroScene.unity
+    guid: 2a2b52728acf7a645a3d2f6b2d39ff4d
+  - enabled: 1
+    path: Assets/SCENES/Main/PreMainScene.unity
+    guid: 5b59a8fcaa2d1dd448c4dff5e755156f
+  - enabled: 1
+    path: Assets/SCENES/Main/MainScene.unity
+    guid: 0b7b6ff10c575e744a285b37c9e856e5
+  - enabled: 1
+    path: Assets/SCENES/Main/PostMainScene.unity
+    guid: 65df0278ba9d7e441b33b9b43e92dc82
+  - enabled: 1
+    path: Assets/SCENES/Main/EndScene.unity
+    guid: 6526ba52474c94c4f83109c8ff929dbb
+  - enabled: 1
+    path: Assets/SCENES/Extras/ExtrasMenuScene.unity
+    guid: b13fac15cd370f14e8567957387448f8
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra1_WalterNightmare.unity
+    guid: d47fc8a5a09220f47bcb48a95376c346
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra2_Fall.unity
+    guid: 379bb99299d62784c9ac221d95b7d5ee
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra3_Flyby.unity
+    guid: 8b60ab0dbf4dfd146b8a86cc0261f2b3
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra4_Blood.unity
+    guid: 3b4510a9877e1224cb9cc936ba857e29
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra5_Beach.unity
+    guid: a0eecbf0f5a64f14c9a93fe83418eb53
+  - enabled: 1
+    path: Assets/SCENES/Extras/Extra6_City.unity
+    guid: a9912df9713896d4a83f6a0a00b26c7d
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d900ade9762739b4cb387ee1bb874799, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 1da2dc6b1fe49e848a1678eafc0d4e4c, type: 2}

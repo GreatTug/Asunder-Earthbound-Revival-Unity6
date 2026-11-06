@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!149 &1
+NetworkManager:
+  m_ObjectHideFlags: 0
+  m_DebugLevel: 0
+  m_Sendrate: 15
+  m_AssetToPrefab:
+    5ca99170bd118bca11002b7b44295342: {fileID: 147589, guid: bdb607d0c1ca47848b73c32821dcdccc, type: 2}
+    3e4e323133b96447ea304b0d433bbb1d: {fileID: 147589, guid: 7d387886daea7dd4fbf16954c6aadd92, type: 2}
+    6bfb1933829ae4292bf7b9376291d85a: {fileID: 147589, guid: 2c9c13219cff1e349b29a386d92455d7, type: 2}
+    a07b808334ed14fdd8e149b2ee091c60: {fileID: 147589, guid: f7add99e8caef6246a33de418373ea42, type: 2}
+    ec65af85acea13e468455d82e1471675: {fileID: 147589, guid: 4bd8a7f4fad7fc647a67b5d5ac03ecf3, type: 2}
+    9d4133d5d30b644bd87802a347eaccbe: {fileID: 147589, guid: e5bd77acf60feec4b8ce1ab94b1aeb0b, type: 2}
+    8f003946303c3454c8eadfc1dfe79892: {fileID: 147589, guid: c5b0985155271624d9ae7c308d131b72, type: 2}
+    96ba5bd6f9ef547cfa2bedfffc791631: {fileID: 147589, guid: dd92d298f22f2de408e515b461fa3292, type: 2}
+    74bc7dd658a0d45bcb66b08817b5f4a2: {fileID: 147589, guid: 78825ee3abf0c5a45a03f6b7621c4b92, type: 2}
+    959d4429cfee04988bcb312b599a9d6a: {fileID: 147589, guid: fa194315af5bcbe4c9c6f1ef30b9ce44, type: 2}
+    016fcd49957717d4ea62b0505cd796a2: {fileID: 147589, guid: 97936a26c7e6e2741b09a0536f6a63a6, type: 2}
+    9656dc0a3eaca49569ad5627562a061c: {fileID: 147589, guid: e1259ba42dd26b64abed6b84cb535e27, type: 2}
+    d7a0c95ae082b4084be6014e9f3a1ec2: {fileID: 147589, guid: d41d1c73adb683a4ea9a48e3c01e1630, type: 2}
+    d061df6a20b1a45eca9536851887b985: {fileID: 147589, guid: da3c037b4f604b44fbc42ea29509d775, type: 2}
+    c7679d3bf009242faa2e317c935649c2: {fileID: 147589, guid: aef60ab2b5708b2458d67d6aa3f772ae, type: 2}
+    027fceac5f9444c8f83d391108a7cc4f: {fileID: 147589, guid: 2ee1b254dff1e5f4fbaf4ff3c5550d88, type: 2}
+    25fa881dbd110e38a00062d88f962b59: {fileID: 147589, guid: c905f0f9f36ea5e4b8d7d9c887f9b2fe, type: 2}
+    ae5d05fda33d34aa2851e95b52cc28c4: {fileID: 147589, guid: 3d79d999213f82745a1214bf85d20451, type: 2}
+    d27948fe06ea64b35b6d6a6d9d90ddfc: {fileID: 147589, guid: 1fefe70e96795f748804b254b0360792, type: 2}

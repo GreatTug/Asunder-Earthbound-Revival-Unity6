@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characters>	
+	<Radio>
+    	<name>Radio</name>
+		
+		<!-- Captain's first announcement -->
+		<dialoguesequence audioFile="Radio-announcement-FX-1">
+	    	
+	      		<dialogue>Ladies and gentlemen, this is your /n captain Irvin Douglas, speaking. </dialogue>
+				<dialogue>In a moment we should be rising /n out of this cloud bank</dialogue>
+				<dialogue>hopefully we'll be able to give you /n a view of the city before we continue on to ...</dialogue>
+				<dialogue>*INDISCERNIBLE*</dialogue>
+				<dialogue>... and we're looking at about /n a five hour flight time today</dialogue>
+				<dialogue>We thank you for flying with us /n and promise a safe and happy journey!</dialogue>
+		</dialoguesequence>
+		
+		<!-- MR SANDMAN -->
+		<dialoguesequence audioFile="dimensional-dancingdark">
+			<dialogue>Your in-flight entertainment was /n brought to you by Aldin Dynamics.</dialogue>
+			<dialogue>Because you deserve it.</dialogue>
+			<dialogue>Now sit back and enjoy the fresh hit single...</dialogue>
+			<dialogue>Mr. Sandman!</dialogue>
+		</dialoguesequence>
+		
+		<!-- Captain's storm announcement -->
+		<dialoguesequence audioFile="Radio-stormclouds-turbulence-FX">
+	      		<dialogue>Storm! </dialogue>
+		</dialoguesequence>
+	
+		<!-- Dimensional! -->
+		<dialoguesequence audioFile="radio-dimensional-announcer">
+	      		<dialogue>What the!? </dialogue>
+		</dialoguesequence>
+    	<description>
+      		<![CDATA[<p>Create interactive <b>Papervision3D</b> applications with stunning effects and powerful animations</p>]]>
+    	</description>
+	</Radio>
+	
+	<Walter>
+    	<name>Walter</name>
+		
+		<!-- 0 SCENE 1 BEGINS -->
+		<dialoguesequence audioFile="Walter-Hello">
+			<dialogue>Hello there. I didn't see you get on.</dialogue>
+			<dialogue>You look pale. Afraid of flying?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 1 PLAYER ACCEPT -->
+		<dialoguesequence audioFile="Walter-all-this-whiskey">
+			<dialogue>So am I. /n That's why I've got all this whiskey!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 2 PLAYER REFUSES -->
+		<dialoguesequence audioFile="Walter-always-been-afraid">
+			<dialogue>Well aren't you special!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 3 PLAYER DOES NOTHING -->
+		<dialoguesequence audioFile="test">
+			<dialogue>Fine. Be that way.</dialogue>
+		</dialoguesequence>
+		
+		<!-- 4 PLAYER DOES NOTHING -->
+		<dialoguesequence audioFile="Walter-watch-falling-off">
+			<dialogue>I don't have my glasses but it seems /n your watch is falling off</dialogue>
+		</dialoguesequence>
+		
+		<!-- 5 PLAYER DOES NOT PUSH CUFFS UNDER SWEATER -->
+		<dialoguesequence audioFile="Walter-thats-mute-newt">
+			<dialogue>That ain't no watch! Handcuffs! /n You're that convict that escaped!</dialogue>
+			<dialogue>Hey, HEY — that's the escaped convict /n He's right there!</dialogue>
+		</dialoguesequence>
+		
+		
+		<!-- 6 PLAYER PUSHES CUFFS UNDER SWEATER -->
+		<dialoguesequence audioFile="Walter-gonna-fall-off">
+			<dialogue>Better keep an eye on that or you'll lose it</dialogue>
+			<dialogue>I'm Walter by the way… A pleasure /n to make your acquain...*hiccup*...acquaintance. </dialogue>
+		</dialoguesequence>
+		
+		<!-- 7  -->
+		<dialoguesequence audioFile="Walter-got-ourselves-mockingbird">
+			<dialogue>Mocking bird!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 8  -->
+		<dialoguesequence audioFile="Walter-what-fresh-hell-is-this">
+			<dialogue>What fresh hell is this?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 9  -->
+		<dialoguesequence audioFile="Walter-put-that-away">
+			<dialogue>Put that Away!</dialogue>
+		</dialoguesequence>
+		
+		
+		<!-- 10  -->
+		<dialoguesequence audioFile="Walter-is-there-something-out-there">
+			<dialogue>Did you see something?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 11  -->
+		<dialoguesequence audioFile="Walter-dont-scare-me-like-that">
+			<dialogue>Don't scare me!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 12  -->
+		<dialoguesequence audioFile="Walter-refuse-dont-act-so-scared-then">
+			<dialogue>Fine, why are you looking at me then?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 13  -->
+		<dialoguesequence audioFile="">
+			<dialogue>You should stop worrying so much...</dialogue>
+		</dialoguesequence>
+		
+		<!-- 14  -->
+		<dialoguesequence audioFile="">
+			<dialogue>What is it now? What are you pointing at?</dialogue>
+		</dialoguesequence>
+		
+		
+		<!-- 15 -->
+		<dialoguesequence audioFile="Walter-if-u-throw-ima-kill-u">
+			<dialogue>I'ma gona kill you</dialogue>
+		</dialoguesequence>
+		
+		<!-- 16 -->
+		<dialoguesequence audioFile="Walter-ima-come-over-there">
+			<dialogue>I'm coming over there!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 17 -->
+		<dialoguesequence audioFile="Walter-this-article-here">
+			<dialogue>Thanks! This article ...</dialogue>
+		</dialoguesequence>
+		
+		<!-- 18 -->
+		<dialoguesequence audioFile="Walter-can-you-hear-that">
+			<dialogue>What was that!?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 19 -->
+		<dialoguesequence audioFile="Walter-look-out-your-window">
+			<dialogue>Look out!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 20 -->
+		<dialoguesequence audioFile="Walter-what-are-you-pointing-at">
+			<dialogue>Walter what are you pointing at!</dialogue>
+		</dialoguesequence>
+		
+		
+		<!-- 21 -->
+		<dialoguesequence audioFile="Walter-talking-to-himself">
+			<dialogue>What did you see?</dialogue>
+		</dialoguesequence>
+		
+		<!-- 22 -->
+		<dialoguesequence audioFile="Walter-open-the-hatch">
+			<dialogue>JESUS CHRIST!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 23 -->
+		<dialoguesequence audioFile="Walter-jesus-christ">
+			<dialogue>JESUS CHRIST A GUN!</dialogue>
+		</dialoguesequence>
+		
+		<!-- 24 -->
+		<dialoguesequence audioFile="Walter-something-to-throw">
+			<dialogue>I.. </dialogue>
+		</dialoguesequence>
+		
+		<!-- 25 -->
+		<dialoguesequence audioFile="Walter-buddy-buddy-buddy">
+			<dialogue>Hey buddy! </dialogue>
+		</dialoguesequence>
+		
+		<!-- 26 -->
+		<dialoguesequence audioFile="Walter-attention-span">
+			<dialogue>Damn mute! </dialogue>
+		</dialoguesequence>
+		
+		
+		<!-- 27 -->
+		<dialoguesequence audioFile="Walter-goddamn-storm">
+			<dialogue>Goddamn storm! </dialogue>
+		</dialoguesequence>
+		
+		
+		
+	</Walter>
+	
+	
+	
+	
+	<Edward>
+    	<name>Edward</name>
+		
+		<!-- SCENE 2 BEGINS -->
+		<dialoguesequence audioFile="edward-humming-1">
+			<dialogue>*Annoying humming*</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="edward-T2-what-was-that">
+			<dialogue>What was that?</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="edward-humming-2">
+			<dialogue>*More annoying humming*</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="edward-T2-stop-kicking-my-seat">
+			<dialogue>Hey knock it off back there.</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Edward-T2-I-tell-him-sir">
+			<dialogue>I guess I'll have to tell him!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="edward-oh-christ-thats-mute-newt">
+			<dialogue>It's him!</dialogue>
+		</dialoguesequence>
+		
+		
+	</Edward>
+	
+	<Biff>
+    	<name>Biff</name>
+		
+		<dialoguesequence audioFile="biff-got-himself-criminal">
+			<dialogue>You wan't me to get'm!? /n I got him, I got the criminal!</dialogue>
+		</dialoguesequence>
+	</Biff>
+	
+	
+	<Lydia>
+    	<name>Lydia</name>
+		
+		<dialoguesequence audioFile="Lydia-the-laughing-woman">
+			<dialogue>HAHAHAHAAHA</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Lydia-HEY-1">
+			<dialogue>HEY! STOP THAT!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Lydia-wait-dont-i-know-you-1">
+			<dialogue>I know you!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Lydia-I-think-the-man-ismutenewt">
+			<dialogue>It's him!!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Lydia-turn-on-light-1">
+			<dialogue>Turn on the light!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="Lydia-sworn-ive-seen-you-1">
+			<dialogue>I could have sworn i've seen you!</dialogue>
+		</dialoguesequence>
+		
+		
+	</Lydia>
+	
+	<Crowd>
+    	<name>Crowd</name>
+		
+		<dialoguesequence audioFile="peanut-throw-1">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-2">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-3">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-4">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-5">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-6">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-7">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-8">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-9">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-10">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-11">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-12">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-13">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-14">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-15">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-16">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-17">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-18">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-19">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-20">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-21">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-22">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-23">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-24">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+		<dialoguesequence audioFile="peanut-throw-25">
+			<dialogue>Stop throwing!</dialogue>
+		</dialoguesequence>
+		
+	</Crowd>
+	
+	<Helper>
+    	<name>Helper</name>
+		
+		
+		<!-- 0 -->
+		<dialoguesequence audioFile="">
+			<dialogue>If you get stuck, press this button for a hint.</dialogue>
+			<dialogue>Only use it in an emergency.</dialogue>
+			<dialogue>There is no need for a hint right now./nPatience.</dialogue>
+			<dialogue>Patience! You must learn patience.</dialogue>
+		</dialoguesequence>
+		
+		<!-- 1 -->
+		<dialoguesequence audioFile="">
+			<dialogue>Nod or shake your head.</dialogue>
+		</dialoguesequence>
+		
+		<!-- 2 -->
+		<dialoguesequence audioFile="">
+			<dialogue>Consider who you are.</dialogue>
+			<dialogue>Handcuffs are a dead give-away for convicts.</dialogue>
+			<dialogue>Look at the handcuff and click to hide it... sigh.</dialogue>
+		</dialoguesequence>
+		
+		<!-- 3 -->
+		<dialoguesequence audioFile="">
+			<dialogue>The guy in front of you sure is annoying.</dialogue>
+			<dialogue>Examine the seat in front of you.</dialogue>
+			<dialogue>Don't kick too many times./nBehave yourself</dialogue>
+		</dialoguesequence> 
+		
+		
+		<!-- 4 -->
+		<dialoguesequence audioFile="">
+			<dialogue>Mmmm... peanuts.</dialogue>
+			<dialogue>What an obnoxious laughter.</dialogue>
+			<dialogue>Turn off the light or she'll recognize you.</dialogue>
+		</dialoguesequence> 
+
+		<!-- 5 -->
+		<dialoguesequence audioFile="">
+			<dialogue>Don't panic.</dialogue>
+			<dialogue>Look at the hatch.</dialogue>
+			<dialogue>Look at the hatch and click!</dialogue>
+		</dialoguesequence> 
+		
+	</Helper>
+	
+	
+</characters>
+
+

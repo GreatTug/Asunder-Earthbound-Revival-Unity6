@@ -1,0 +1,38 @@
+# License & Copyright Terms
+
+## 1. Custom Code, Modernization Scripts & Tooling
+The MIT License (MIT)
+
+Copyright (c) 2026 Asunder Revival & Preservation Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## 2. Original Game Assets, Audio, Art & Intellectual Property
+All original 3D models, textures, voice recordings, animations, sound effects,
+characters, and narrative elements from the original release of **"Asunder: Earthbound" (2013)**
+remain the exclusive intellectual property and copyright of **Aldin Dynamics ehf.**.
+
+This repository is an unofficial, non-commercial, non-profit community digital preservation effort
+dedicated to historical archiving and VR hardware compatibility (restoring accessibility on modern 64-bit systems and OpenXR hardware following the deprecation of the Oculus Rift DK1 runtime).
+
+- **Non-Commercial**: No parts of the original assets may be used for commercial purposes.
+- **Attribution**: Original game design, characters, art, and concept by **Aldin Dynamics**.
+- **Takedown Policy**: If you are a copyright holder or representative of Aldin Dynamics and wish to have these assets removed or modified, please open an issue or contact the repository maintainers.
