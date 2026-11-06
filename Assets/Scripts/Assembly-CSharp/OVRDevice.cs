@@ -18,6 +18,10 @@ public static class AsunderInput
 
 	public static XRNode ActivePointerHand = XRNode.RightHand;
 
+	public static bool IsCardboardMode;
+	private static bool _hasGyro;
+	private static Quaternion _gyroRotation = Quaternion.identity;
+
 	private static bool _prevXrInteract;
 	private static bool _xrInteractDown;
 	private static bool _xrInteractUp;
@@ -313,7 +317,14 @@ public static class AsunderInput
 
 		if (!XRSettings.isDeviceActive)
 		{
-			_recenterYawOffset = 0f;
+			if (_hasGyro)
+			{
+				_recenterYawOffset = -_gyroRotation.eulerAngles.y;
+			}
+			else
+			{
+				_recenterYawOffset = 0f;
+			}
 			_recenterPosOffset = Vector3.zero;
 			return;
 		}
@@ -377,8 +388,25 @@ public static class AsunderInput
 		}
 
 		EnsurePolledThisFrame();
-		localRot = Quaternion.Euler(_fallbackPitch, _fallbackYaw, 0f);
-		localPos = Vector3.zero;
+		if (_hasGyro)
+		{
+			Quaternion yawFix = Quaternion.Euler(0f, _recenterYawOffset + _snapTurnYawOffset, 0f);
+			localRot = yawFix * _gyroRotation;
+		}
+		else
+		{
+			localRot = Quaternion.Euler(_fallbackPitch, _fallbackYaw, 0f);
+		}
+
+		bool isCardboard = IsCardboardMode || (Application.isMobilePlatform && !XRSettings.isDeviceActive);
+		if (isCardboard)
+		{
+			localPos = (isLeftEye ? -fallbackIpd * 0.5f : fallbackIpd * 0.5f) * Vector3.right;
+		}
+		else
+		{
+			localPos = Vector3.zero;
+		}
 	}
 
 	public static void GetCenterHeadPose(out Quaternion localRot, out Vector3 localPos)
@@ -402,7 +430,15 @@ public static class AsunderInput
 		}
 
 		EnsurePolledThisFrame();
-		localRot = Quaternion.Euler(_fallbackPitch, _fallbackYaw, 0f);
+		if (_hasGyro)
+		{
+			Quaternion yawFix = Quaternion.Euler(0f, _recenterYawOffset + _snapTurnYawOffset, 0f);
+			localRot = yawFix * _gyroRotation;
+		}
+		else
+		{
+			localRot = Quaternion.Euler(_fallbackPitch, _fallbackYaw, 0f);
+		}
 		localPos = Vector3.zero;
 	}
 
@@ -475,6 +511,19 @@ public static class AsunderInput
 		if (!_leftHandDevice.isValid) _leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
 		if (!_headDevice.isValid) _headDevice = InputDevices.GetDeviceAtXRNode(XRNode.CenterEye);
 
+		if (!XRSettings.isDeviceActive && SystemInfo.supportsGyroscope)
+		{
+			if (!Input.gyro.enabled)
+			{
+				Input.gyro.enabled = true;
+			}
+			Quaternion raw = Input.gyro.attitude;
+			Quaternion converted = new Quaternion(raw.x, raw.y, -raw.z, -raw.w);
+			converted = Quaternion.Euler(90f, 0f, 0f) * (Quaternion.Euler(0f, 0f, 180f) * converted);
+			_gyroRotation = converted;
+			_hasGyro = true;
+		}
+
 		if (!XRSettings.isDeviceActive && Cursor.lockState == CursorLockMode.Locked && Mouse.current != null)
 		{
 			Vector2 delta = Mouse.current.delta.ReadValue();
@@ -487,7 +536,19 @@ public static class AsunderInput
 		if (lInteract && !rInteract) ActivePointerHand = XRNode.LeftHand;
 		else if (rInteract && !lInteract) ActivePointerHand = XRNode.RightHand;
 
-		bool interactNow = rInteract || lInteract;
+		bool touchPressed = false;
+		if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+		{
+			touchPressed = true;
+		}
+		else if (Input.touchCount > 0)
+		{
+			touchPressed = true;
+		}
+
+		bool touchRecenter = (Input.touchCount >= 2);
+
+		bool interactNow = rInteract || lInteract || touchPressed;
 		_xrInteractDown = interactNow && !_prevXrInteract;
 		_xrInteractUp = !interactNow && _prevXrInteract;
 		_prevXrInteract = interactNow;
@@ -497,7 +558,7 @@ public static class AsunderInput
 		_xrMenuUp = !menuNow && _prevXrMenu;
 		_prevXrMenu = menuNow;
 
-		bool recenterNow = ReadControllerRecenter(XRNode.RightHand) || ReadControllerRecenter(XRNode.LeftHand);
+		bool recenterNow = ReadControllerRecenter(XRNode.RightHand) || ReadControllerRecenter(XRNode.LeftHand) || touchRecenter;
 		_xrRecenterDown = recenterNow && !_prevXrRecenter;
 		_xrRecenterUp = !recenterNow && _prevXrRecenter;
 		_prevXrRecenter = recenterNow;

@@ -104,9 +104,258 @@ public static class AsunderUnity6SetupAndAudit
         public bool allChecksPassed;
     }
 
+    [MenuItem("Asunder/DiagnoseJDK")]
+    public static void DiagnoseJDK()
+    {
+        System.Type t = System.Type.GetType("UnityEditor.Android.AndroidExternalToolsSettings, UnityEditor.Android.Extensions");
+        if (t != null)
+        {
+            Debug.Log("[DiagnoseJDK] Found AndroidExternalToolsSettings!");
+            foreach (var p in t.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static))
+            {
+                try { Debug.Log($"[DiagnoseJDK] Prop: {p.Name} = '{p.GetValue(null)}'"); }
+                catch (System.Exception e) { Debug.Log($"[DiagnoseJDK] Prop: {p.Name} threw {e.Message}"); }
+            }
+            System.Type javaToolsType = t.Assembly.GetType("UnityEditor.Android.AndroidJavaTools");
+            if (javaToolsType != null)
+            {
+                Debug.Log("[DiagnoseJDK] Found AndroidJavaTools!");
+                foreach (var p in javaToolsType.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Instance))
+                {
+                    try { Debug.Log($"[DiagnoseJDK] JavaTools Prop: {p.Name} = '{p.GetValue(null)}'"); }
+                    catch (System.Exception e) { Debug.Log($"[DiagnoseJDK] JavaTools Prop: {p.Name} threw {e.Message}"); }
+                }
+                foreach (var m in javaToolsType.GetMethods(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Instance))
+                {
+                    Debug.Log($"[DiagnoseJDK] JavaTools Method: {m.Name}");
+                }
+            }
+            System.Type javaRootType = t.Assembly.GetType("UnityEditor.Android.AndroidJavaRoot");
+            if (javaRootType != null)
+            {
+                var getInstance = javaRootType.GetMethod("GetInstance", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                object instance = getInstance != null ? getInstance.Invoke(null, null) : null;
+                Debug.Log($"[DiagnoseJDK] AndroidJavaRoot instance: {instance}");
+                if (instance != null)
+                {
+                    foreach (var p in javaRootType.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+                    {
+                        try { Debug.Log($"[DiagnoseJDK] JavaRoot Instance Prop: {p.Name} = '{p.GetValue(instance)}'"); }
+                        catch (System.Exception e) { Debug.Log($"[DiagnoseJDK] JavaRoot Instance Prop: {p.Name} threw {e.Message}"); }
+                    }
+                    var valMethod = javaRootType.GetMethod("Validate", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    if (valMethod != null)
+                    {
+                        try
+                        {
+                            string[] testPaths = new string[] { @"C:\Users\greattug\jdk-17.0.12+7", @"C:\Users\greattug\Unity6\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK" };
+                        foreach (var tp in testPaths)
+                        {
+                            object valRes = valMethod.Invoke(instance, new object[] { tp });
+                            string details = "";
+                            if (valRes != null)
+                            {
+                                foreach (var fld in valRes.GetType().GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+                                    details += $"{fld.Name}={fld.GetValue(valRes)}, ";
+                                foreach (var prp in valRes.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+                                    details += $"{prp.Name}={prp.GetValue(valRes)}, ";
+                            }
+                            Debug.Log($"[DiagnoseJDK] Validate result for {tp}: '{details}'");
+                        }
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.Log($"[DiagnoseJDK] Validate threw: {e}");
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("[DiagnoseJDK] Could not find AndroidExternalToolsSettings type!");
+        }
+    }
+
+    public static void ConfigureAndroidSDKPaths()
+    {
+        EditorPrefs.SetString("AndroidSdkRoot", @"C:\Users\greattug\AndroidSDK");
+        EditorPrefs.SetString("AndroidNdkRoot", @"C:\Program Files (x86)\Android\AndroidNDK\android-ndk-r27c");
+        EditorPrefs.SetString("Jdk17Path", @"C:\Users\greattug\jdk-17.0.12+7");
+        EditorPrefs.SetString("JdkPath", @"C:\Users\greattug\jdk-17.0.12+7");
+        EditorPrefs.SetBool("AndroidSdkRootUseEmbedded", true);
+        EditorPrefs.SetBool("AndroidNdkRootUseEmbedded", true);
+        EditorPrefs.SetBool("JdkUseEmbedded", true);
+        EditorPrefs.SetBool("GradleUseEmbedded", true);
+        QualitySettings.shadows = ShadowQuality.HardOnly;
+
+        try
+        {
+            System.Type toolsSettingsType = System.Type.GetType("UnityEditor.Android.AndroidExternalToolsSettings, UnityEditor.Android.Extensions");
+            if (toolsSettingsType != null)
+            {
+                var jdkProp = toolsSettingsType.GetProperty("jdkRootPath", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                if (jdkProp != null) jdkProp.SetValue(null, @"C:\Users\greattug\jdk-17.0.12+7");
+                var sdkProp = toolsSettingsType.GetProperty("sdkRootPath", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                if (sdkProp != null) sdkProp.SetValue(null, @"C:\Users\greattug\AndroidSDK");
+                var ndkProp = toolsSettingsType.GetProperty("ndkRootPath", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                if (ndkProp != null) ndkProp.SetValue(null, @"C:\Program Files (x86)\Android\AndroidNDK\android-ndk-r27c");
+            }
+
+            System.Type javaRootType = System.Type.GetType("UnityEditor.Android.AndroidJavaRoot, UnityEditor.Android.Extensions");
+            if (javaRootType != null)
+            {
+                var getInstance = javaRootType.GetMethod("GetInstance", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                object instance = getInstance != null ? getInstance.Invoke(null, null) : null;
+                if (instance != null)
+                {
+                    var customDirProp = javaRootType.GetProperty("CustomDirectory", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    if (customDirProp != null) customDirProp.SetValue(instance, @"C:\Users\greattug\jdk-17.0.12+7");
+                    var useEmbeddedProp = javaRootType.GetProperty("UseEmbedded", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    if (useEmbeddedProp != null) useEmbeddedProp.SetValue(instance, true);
+                }
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogWarning("[AsunderAndroid] Reflection settings warning: " + ex.Message);
+        }
+
+        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
+        {
+            EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+        }
+        EditorUserBuildSettings.selectedBuildTargetGroup = BuildTargetGroup.Android;
+        EditorUserBuildSettings.buildAppBundle = false;
+        Debug.Log("[AsunderAndroid] Android SDK (with CMake 3.22.1), NDK, and JDK 17 paths configured.");
+    }
+
+    [MenuItem("Asunder/Build Quest 3 Standalone APK")]
+    public static void BuildQuest3StandaloneAPK()
+    {
+        ConfigureAndroidSDKPaths();
+        ConfigureOpenXRAndroid(null);
+        string apkDir = @"C:\Games\Asunder Earthbound VR\Asunder_Unity6\Builds\Android";
+        if (!Directory.Exists(apkDir)) Directory.CreateDirectory(apkDir);
+        string apkPath = Path.Combine(apkDir, "Asunder_Earthbound_Quest3_v1.0.0.apk");
+
+        BuildPlayerOptions opts = new BuildPlayerOptions();
+        opts.scenes = ExpectedScenes;
+        opts.locationPathName = apkPath;
+        opts.targetGroup = BuildTargetGroup.Android;
+        opts.target = BuildTarget.Android;
+        opts.options = BuildOptions.None;
+
+        Debug.Log("[AsunderQuest3] Building Standalone Quest 3 APK to: " + apkPath);
+        BuildReport report = BuildPipeline.BuildPlayer(opts);
+        if (report.summary.result == BuildResult.Succeeded)
+        {
+            Debug.Log($"[AsunderQuest3] Quest 3 APK Build Succeeded! Size: {report.summary.totalSize} bytes ({report.summary.totalSize / (1024 * 1024)} MB) at {apkPath}");
+            if (!Application.isBatchMode)
+            {
+                EditorUtility.DisplayDialog("Quest 3 Build Complete", $"Successfully built Quest 3 APK:\n{apkPath}\nSize: {report.summary.totalSize / (1024 * 1024)} MB", "OK");
+            }
+        }
+        else
+        {
+            Debug.LogError($"[AsunderQuest3] Quest 3 APK Build Failed with {report.summary.totalErrors} errors.");
+            if (Application.isBatchMode)
+            {
+                EditorApplication.Exit(1);
+            }
+        }
+    }
+
+    [MenuItem("Asunder/Build Cardboard Mobile VR APK")]
+    public static void BuildCardboardStandaloneAPK()
+    {
+        ConfigureAndroidSDKPaths();
+        ConfigureCardboardAndroid();
+        string apkDir = @"C:\Games\Asunder Earthbound VR\Asunder_Unity6\Builds\Android";
+        if (!Directory.Exists(apkDir)) Directory.CreateDirectory(apkDir);
+        string apkPath = Path.Combine(apkDir, "Asunder_Earthbound_Cardboard_v1.0.0.apk");
+
+        BuildPlayerOptions opts = new BuildPlayerOptions();
+        opts.scenes = ExpectedScenes;
+        opts.locationPathName = apkPath;
+        opts.targetGroup = BuildTargetGroup.Android;
+        opts.target = BuildTarget.Android;
+        opts.options = BuildOptions.None;
+
+        Debug.Log("[AsunderCardboard] Building Standalone Cardboard APK to: " + apkPath);
+        BuildReport report = BuildPipeline.BuildPlayer(opts);
+        if (report.summary.result == BuildResult.Succeeded)
+        {
+            Debug.Log($"[AsunderCardboard] Cardboard APK Build Succeeded! Size: {report.summary.totalSize} bytes ({report.summary.totalSize / (1024 * 1024)} MB) at {apkPath}");
+            if (!Application.isBatchMode)
+            {
+                EditorUtility.DisplayDialog("Cardboard Build Complete", $"Successfully built Cardboard APK:\n{apkPath}\nSize: {report.summary.totalSize / (1024 * 1024)} MB", "OK");
+            }
+        }
+        else
+        {
+            Debug.LogError($"[AsunderCardboard] Cardboard APK Build Failed with {report.summary.totalErrors} errors.");
+            if (Application.isBatchMode)
+            {
+                EditorApplication.Exit(1);
+            }
+        }
+    }
+
+    [MenuItem("Asunder/Build Both Android APKs (Quest 3 + Cardboard)")]
+    public static void BuildBothAndroidAPKs()
+    {
+        Debug.Log("[AsunderAndroid] Starting Dual Android Compilation: Meta Quest 3 + Google Cardboard...");
+        BuildQuest3StandaloneAPK();
+        BuildCardboardStandaloneAPK();
+        Debug.Log("[AsunderAndroid] All Android builds successfully finished!");
+    }
+
+    public static void ConfigureCardboardAndroid()
+    {
+        ConfigureAndroidSDKPaths();
+        PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel24;
+        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
+        PlayerSettings.colorSpace = ColorSpace.Gamma;
+        PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
+        PlayerSettings.Android.applicationEntry = AndroidApplicationEntry.GameActivity;
+        PlayerSettings.Android.useCustomKeystore = false;
+        PlayerSettings.Android.bundleVersionCode = 1;
+        PlayerSettings.bundleVersion = "1.0.0";
+        PlayerSettings.Android.bundleVersionCode = 1;
+        PlayerSettings.bundleVersion = "1.0.0";
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new[] { UnityEngine.Rendering.GraphicsDeviceType.OpenGLES3, UnityEngine.Rendering.GraphicsDeviceType.Vulkan });
+        PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "com.AldinDynamics.Asunder.Cardboard");
+        PlayerSettings.productName = "Asunder: Earthbound (Cardboard VR)";
+        PlayerSettings.companyName = "Aldin Dynamics";
+
+        const string generalAssetPath = "Assets/XR/XRGeneralSettingsPerBuildTarget.asset";
+        if (EditorBuildSettings.TryGetConfigObject(XRGeneralSettings.settingsKey, out XRGeneralSettingsPerBuildTarget perBuildTarget) && perBuildTarget != null)
+        {
+            XRGeneralSettings androidGeneral = perBuildTarget.SettingsForBuildTarget(BuildTargetGroup.Android);
+            if (androidGeneral != null)
+            {
+                androidGeneral.InitManagerOnStart = false;
+                EditorUtility.SetDirty(androidGeneral);
+            }
+            XRManagerSettings androidManager = perBuildTarget.ManagerSettingsForBuildTarget(BuildTargetGroup.Android);
+            if (androidManager != null)
+            {
+                XRPackageMetadataStore.RemoveLoader(androidManager, typeof(OpenXRLoader).FullName, BuildTargetGroup.Android);
+                EditorUtility.SetDirty(androidManager);
+            }
+            EditorUtility.SetDirty(perBuildTarget);
+        }
+        AssetDatabase.SaveAssets();
+        Debug.Log("[AsunderCardboard] Configured Cardboard Android settings (ARM64, split-screen stereo, phone gyro, OpenXR disabled).");
+    }
+
     [MenuItem("Asunder/Build Quest 3 APK (Android)")]
     public static void BuildQuest3APKMenu()
     {
+        ConfigureAndroidSDKPaths();
         Debug.Log("[AsunderQuest3] Initiating Quest 3 Standalone Android Build...");
         ConfigureOpenXRAndroid(null);
         if (!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Android, BuildTarget.Android))
@@ -451,11 +700,20 @@ public static class AsunderUnity6SetupAndAudit
 
     private static void ConfigureOpenXRAndroid(FinalAuditReport report)
     {
+        ConfigureAndroidSDKPaths();
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel29;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.colorSpace = ColorSpace.Gamma;
+        PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
+        PlayerSettings.Android.applicationEntry = AndroidApplicationEntry.GameActivity;
+        PlayerSettings.Android.useCustomKeystore = false;
+        PlayerSettings.Android.bundleVersionCode = 1;
+        PlayerSettings.bundleVersion = "1.0.0";
+        PlayerSettings.Android.bundleVersionCode = 1;
+        PlayerSettings.bundleVersion = "1.0.0";
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new[] { UnityEngine.Rendering.GraphicsDeviceType.Vulkan, UnityEngine.Rendering.GraphicsDeviceType.OpenGLES3 });
         PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "com.AldinDynamics.Asunder");
         PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Standalone, "com.AldinDynamics.Asunder");
         PlayerSettings.productName = "Asunder: Earthbound";
@@ -497,13 +755,63 @@ public static class AsunderUnity6SetupAndAudit
             androidSettings.renderMode = OpenXRSettings.RenderMode.MultiPass;
             foreach (OpenXRFeature feature in androidSettings.GetFeatures<OpenXRFeature>())
             {
+                if (feature.GetType().Name == "OculusQuestFeature")
+                {
+                    feature.enabled = false;
+                    EditorUtility.SetDirty(feature);
+                    continue;
+                }
+
                 if (feature is OculusTouchControllerProfile ||
                     feature is MetaQuestTouchProControllerProfile ||
-                    feature is MetaQuestTouchPlusControllerProfile ||
-                    feature.GetType().Name.Contains("MetaQuest") ||
-                    feature.GetType().Name.Contains("Oculus"))
+                    feature is MetaQuestTouchPlusControllerProfile)
                 {
                     feature.enabled = true;
+                    EditorUtility.SetDirty(feature);
+                }
+
+                if (feature.GetType().Name.Contains("MetaQuestFeature"))
+                {
+                    feature.enabled = true;
+                    SerializedObject questSo = new SerializedObject(feature);
+                    SerializedProperty targetDevicesProp = questSo.FindProperty("targetDevices");
+                    if (targetDevicesProp != null)
+                    {
+                        targetDevicesProp.ClearArray();
+                        string[] manifestNames = new string[] { "eureka", "quest3s", "quest2", "cambria" };
+                        string[] visibleNames = new string[] { "Quest 3", "Quest 3S", "Quest 2", "Quest Pro" };
+                        for (int i = 0; i < manifestNames.Length; i++)
+                        {
+                            targetDevicesProp.InsertArrayElementAtIndex(i);
+                            SerializedProperty elem = targetDevicesProp.GetArrayElementAtIndex(i);
+                            elem.FindPropertyRelative("visibleName").stringValue = visibleNames[i];
+                            elem.FindPropertyRelative("manifestName").stringValue = manifestNames[i];
+                            elem.FindPropertyRelative("enabled").boolValue = true;
+                        }
+                    }
+                    SerializedProperty symmProp = questSo.FindProperty("m_symmetricProjection");
+                    if (symmProp != null) symmProp.boolValue = false;
+                    questSo.ApplyModifiedProperties();
+                    EditorUtility.SetDirty(feature);
+                }
+            }
+
+            var valIssues = new System.Collections.Generic.List<OpenXRFeature.ValidationRule>();
+            UnityEditor.XR.OpenXR.OpenXRProjectValidation.GetCurrentValidationIssues(valIssues, BuildTargetGroup.Android);
+            foreach (var issue in valIssues)
+            {
+                Debug.Log($"[AsunderOpenXRValidation] {issue.message} (error: {issue.error})");
+                if (issue.fixIt != null)
+                {
+                    try
+                    {
+                        issue.fixIt.Invoke();
+                        Debug.Log($"[AsunderOpenXRValidation] Successfully fixed: {issue.message}");
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogWarning($"[AsunderOpenXRValidation] Could not auto-fix '{issue.message}': {ex.Message}");
+                    }
                 }
             }
             EditorUtility.SetDirty(androidSettings);

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: Android Settings
   m_EditorClassIdentifier: Unity.XR.Management::UnityEngine.XR.Management.XRGeneralSettings
   m_Manager: {fileID: 7341472579555343399}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
 --- !u!114 &6009534518456618462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,5 +79,4 @@ MonoBehaviour:
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
-  m_Loaders:
-  - {fileID: 11400000, guid: f035f149a3862354db6bcd258d866031, type: 2}
+  m_Loaders: []

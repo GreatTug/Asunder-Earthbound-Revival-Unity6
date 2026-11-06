@@ -216,6 +216,12 @@ public class OVRCameraController : OVRComponent
 	private new void Update()
 	{
 		base.Update();
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			AsunderInput.IsCardboardMode = !AsunderInput.IsCardboardMode;
+			UpdateCamerasDirtyFlag = true;
+			Debug.Log("[AsunderCardboard] Cardboard stereo split-screen toggled: " + AsunderInput.IsCardboardMode);
+		}
 		if (_lastOpenXRActive != AsunderInput.IsOpenXRActive)
 		{
 			_lastOpenXRActive = AsunderInput.IsOpenXRActive;
@@ -268,14 +274,56 @@ public class OVRCameraController : OVRComponent
 			}
 			else
 			{
-				if (CameraLeft != null)
+				bool isCardboard = AsunderInput.IsCardboardMode || Application.isMobilePlatform;
+				if (isCardboard && CameraLeft != null && CameraRight != null)
 				{
-					CameraLeft.stereoTargetEye = StereoTargetEyeMask.None;
-					CameraLeft.enabled = false;
+					ConfigureCardboardEyeCamera(CameraLeft, true, FOV_Left);
+					ConfigureCardboardEyeCamera(CameraRight, false, FOV_Right);
 				}
-				ConfigureDesktopFallbackCamera(CameraRight, FOV_Right);
+				else
+				{
+					if (CameraLeft != null)
+					{
+						CameraLeft.stereoTargetEye = StereoTargetEyeMask.None;
+						CameraLeft.enabled = false;
+					}
+					ConfigureDesktopFallbackCamera(CameraRight, FOV_Right);
+				}
 			}
 			UpdateCamerasDirtyFlag = false;
+		}
+	}
+
+	private void ConfigureCardboardEyeCamera(Camera cam, bool isLeft, float afov)
+	{
+		if (cam == null) return;
+		cam.enabled = true;
+		cam.rect = isLeft ? new Rect(0f, 0f, 0.5f, 1f) : new Rect(0.5f, 0f, 0.5f, 1f);
+		cam.stereoTargetEye = StereoTargetEyeMask.None;
+		if (_cachedOrigMasks)
+		{
+			cam.cullingMask = isLeft ? _origLeftCullingMask : _origRightCullingMask;
+		}
+		cam.ResetStereoViewMatrices();
+		cam.ResetProjectionMatrix();
+		cam.ResetAspect();
+		cam.backgroundColor = Color.black;
+		cam.nearClipPlane = Mathf.Max(0.035f, nearClipPlane);
+		cam.farClipPlane = farClipPlane > 0f ? farClipPlane : 2750f;
+		cam.fieldOfView = Mathf.Clamp(afov > 0f ? afov : 80f, 45f, 95f);
+
+		OVRLensCorrection lens = cam.GetComponent<OVRLensCorrection>();
+		if (lens != null)
+		{
+			lens.enabled = false;
+		}
+
+		OVRCamera ovrCam = cam.GetComponent<OVRCamera>();
+		if (ovrCam != null)
+		{
+			ovrCam.IsLeftEye = isLeft;
+			ovrCam.NeckPosition = NeckPosition;
+			ovrCam.EyePosition = EyeCenterPosition;
 		}
 	}
 
