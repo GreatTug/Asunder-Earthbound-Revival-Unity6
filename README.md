@@ -140,8 +140,10 @@ If you just want to experience the game without opening Unity, download the pre-
 
 ---
 
-## 📜 Credits & Acknowledgements
+## 📜 Credits, Dedications & Special Thanks
 
-* **Original Game Creation, Design & Art**: **[Aldin Dynamics](https://www.aldindynamics.com/)** (2013)
-* **Revival, Unity 6 Porting & OpenXR Integration**: Community Contributors (2026)
+* **Original Game Creation, Design & Art**: **[Aldin Dynamics](https://www.aldindynamics.com/)** (2013) — Our deepest respect and gratitude to the original visionary team for crafting this pioneering 1930s airborne psychological horror experience.
+* **Special Thanks & Discovery**: **LoverBatu (Asikbatu)** — Sincere thanks and appreciation for recommending this hidden VR classic and inspiring its revival, restoration, and digital preservation.
+* **Revival, Unity 6 Porting & OpenXR Integration**: GreatTug & Community Contributors (2026).
+* **An Open Invitation to the Community**: This project belongs to the VR community. Anyone wishing to continue the project, polish interactions, add language translations, refine visuals, or optimize performance is warmly welcomed and encouraged to fork, improve, and submit pull requests!
 * Dedicated to the pioneers of early consumer VR and the preservation of historic interactive fiction.

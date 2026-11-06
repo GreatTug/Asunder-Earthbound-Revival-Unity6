@@ -2,6 +2,8 @@
 
 Thank you for your interest in contributing to the preservation and modernization of **Asunder: Earthbound**!
 
+> **🌟 An Open Invitation**: Whether you want to fix an edge-case bug, enhance VR interactions, add new language subtitles, or improve graphical fidelity, you are warmly invited to continue developing and building upon this project. Special thanks to **Aldin Dynamics** for the original masterpiece and to **LoverBatu (Asikbatu)** for inspiring this preservation effort!
+
 This project is an unofficial community effort dedicated to **digital preservation, historical accessibility, and open-source VR enhancement**.
 
 ---
@@ -25,7 +27,7 @@ This project is an unofficial community effort dedicated to **digital preservati
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/<your-repo>/Asunder-Earthbound-Unity6.git
+   git clone https://github.com/GreatTug/Asunder-Earthbound-Revival-Unity6.git
    cd Asunder-Earthbound-Unity6
    ```
 2. **Open in Unity Hub**:
